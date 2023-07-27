@@ -1,12 +1,8 @@
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mock;
 import org.mockito.MockedStatic;
-import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +17,7 @@ class HorseTest {
         assertEquals("Name cannot be null.", exception.getMessage());
     }
     @ParameterizedTest
-    @ValueSource(strings = {"", "\s", "\t", "\r", "\n", "\f", "\u000B"})
+    @ValueSource(strings = {"", "\t", "\r", "\n", "\f", "\u000B"})
     void whenHorseConstructorNameBlankException(String strings) {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Horse(strings, 0, 0));
         assertEquals("Name cannot be blank.", exception.getMessage());

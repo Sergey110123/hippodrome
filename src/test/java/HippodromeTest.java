@@ -17,7 +17,7 @@ class HippodromeTest {
     }
     @Test
     void whenHippodromeConstructorEmptyParameter(){
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Hippodrome(new ArrayList<Horse>()));
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Hippodrome(new ArrayList<>()));
         assertEquals("Horses cannot be empty.", exception.getMessage());
     }
 
